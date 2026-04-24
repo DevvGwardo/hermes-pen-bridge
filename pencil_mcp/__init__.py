@@ -1,0 +1,1 @@
+"""Pencil MCP - design tool bridge for Claude Code and other MCP clients."""
