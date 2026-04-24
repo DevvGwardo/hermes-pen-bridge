@@ -1,16 +1,17 @@
 [build-system]
-requires = ["setuptools>=61", "wheel"]
+requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "pencil-mcp"
 version = "0.1.0"
-description = "MCP server for Pencil design tool - proxy to built-in MCP plus custom tools"
-requires-python = ">=3.9"
-dependencies = [
-    "mcp>=1.0.0",
-    "pydantic>=2.0.0",
-]
+description = "MCP server for Pencil design tool — native tool proxy + custom file utilities"
+requires-python = ">=3.11"
+dependencies = ["mcp>=1.0.0"]
 
 [project.scripts]
 pencil-mcp = "pencil_mcp.server:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["pencil_mcp*"]

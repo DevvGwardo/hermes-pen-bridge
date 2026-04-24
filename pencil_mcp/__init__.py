@@ -1,1 +1,1 @@
-"""Pencil MCP - design tool bridge for Claude Code and other MCP clients."""
+__version__ = "0.1.0"
