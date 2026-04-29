@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
-"""Pencil MCP Server - Native Pencil tools + custom developer tools.
+"""hermes-pen-bridge — MCP bridge for the Pencil design tool.
+
+Unofficial wrapper. Not affiliated with High Agency, Inc. ("Pencil" is their
+trademark, used here descriptively only).
 
 Architecture:
-  - Spawns Pencil's own mcp-server-darwin-arm64 binary as a subprocess
-  - Forwards all standard tool calls to Pencil (MCP proxy)
-  - Handles custom tools locally (validation, tokens, batch ops, etc.)
+  - Spawns Pencil's bundled mcp-server-darwin-arm64 as a subprocess
+  - Forwards all standard tool calls through (MCP proxy)
+  - Handles custom local tools (validation, tokens, batch ops, etc.)
 """
 import argparse
 import asyncio
@@ -442,7 +445,7 @@ async def _pencil_version(args: dict) -> List[TextContent]:
     return [TextContent(type="text", text=json.dumps({
         "binary": find_pencil_binary(),
         "status": "running",
-        "server": "pencil-mcp v0.1.0"
+        "server": "hermes-pen-bridge v0.1.0"
     }, indent=2))]
 
 async def _pencil_list_recent(args: dict) -> List[TextContent]:
@@ -483,7 +486,7 @@ async def main():
     pencil = PencilProcess(binary)
     await pencil.start()
 
-    server = Server("pencil-mcp")
+    server = Server("hermes-pen-bridge")
     server._pencil = pencil  # type: ignore
 
     @server.list_tools()
@@ -527,7 +530,7 @@ async def main():
             await server.run(
                 rs, ws,
                 InitializationOptions(
-                    server_name="pencil-mcp",
+                    server_name="hermes-pen-bridge",
                     server_version="0.1.0",
                     capabilities=server.get_capabilities(
                         NotificationOptions(prompts_changed=False, resources_changed=False, tools_changed=False),
@@ -542,5 +545,9 @@ async def main():
     finally:
         await pencil.stop()
 
-if __name__ == "__main__":
+def cli():
+    """Synchronous entrypoint for console_scripts."""
     asyncio.run(main())
+
+if __name__ == "__main__":
+    cli()

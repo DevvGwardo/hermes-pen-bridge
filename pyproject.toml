@@ -3,15 +3,17 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "pencil-mcp"
+name = "hermes-pen-bridge"
 version = "0.1.0"
-description = "MCP server for Pencil design tool — native tool proxy + custom file utilities"
+description = "Hermes-first MCP bridge for the Pencil design tool — proxies the bundled MCP server and adds .pen file utilities"
 requires-python = ">=3.11"
 dependencies = ["mcp>=1.0.0"]
+license = {text = "MIT"}
+keywords = ["mcp", "hermes", "pencil", "design", "agent"]
 
 [project.scripts]
-pencil-mcp = "pencil_mcp.server:main"
+hermes-pen-bridge = "hermes_pen_bridge.server:cli"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["pencil_mcp*"]
+include = ["hermes_pen_bridge*"]

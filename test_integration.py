@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Integration test for pencil-mcp server.
+"""Integration test for hermes-pen-bridge server.
 
 Tests all 7 custom tools against the hermes-deploy-design.pen fixture.
 Run from the project root: python test_integration.py
@@ -17,12 +17,12 @@ PEN_FILE = os.path.expanduser('~/Downloads/hermes-deploy-design')
 async def main():
     server_params = StdioServerParameters(
         command=sys.executable,
-        args=['-m', 'pencil_mcp.server'],
+        args=['-m', 'hermes_pen_bridge.server'],
         cwd=os.path.dirname(os.path.abspath(__file__)),
         env=os.environ.copy(),
     )
 
-    print("Starting pencil-mcp server...")
+    print("Starting hermes-pen-bridge server...")
     async with stdio_client(server_params) as (read, write):
         async with ClientSession(read, write) as session:
             await session.initialize()
