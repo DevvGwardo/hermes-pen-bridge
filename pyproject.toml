@@ -4,12 +4,30 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "hermes-pen-bridge"
-version = "0.1.0"
+version = "0.1.1"
 description = "Hermes-first MCP bridge for the Pencil design tool — proxies the bundled MCP server and adds .pen file utilities"
+readme = "README.md"
 requires-python = ">=3.11"
 dependencies = ["mcp>=1.0.0"]
 license = {text = "MIT"}
-keywords = ["mcp", "hermes", "pencil", "design", "agent"]
+keywords = ["mcp", "hermes", "pencil", "design", "agent", "claude"]
+authors = [{name = "DevvGwardo"}]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: MacOS",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.urls]
+Homepage = "https://github.com/devvgwardo/hermes-pen-bridge"
+Source = "https://github.com/devvgwardo/hermes-pen-bridge"
+Issues = "https://github.com/devvgwardo/hermes-pen-bridge/issues"
+"Design Pattern" = "https://github.com/devvgwardo/desktop-app-mcp-proxy-pattern"
 
 [project.scripts]
 hermes-pen-bridge = "hermes_pen_bridge.server:cli"
