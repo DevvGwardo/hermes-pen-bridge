@@ -6,3 +6,7 @@ dist/
 build/
 .pytest_cache/
 .coverage
+
+# Internal launch helpers — strip before public publication
+EMAIL-DRAFT.md
+LAUNCH-CHECKLIST.md
