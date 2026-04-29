@@ -48,7 +48,19 @@ Hermes (Nous Research's local agent) is the primary audience — it's where this
 - [Pencil](https://www.pencil.dev/) installed at `/Applications/Pencil.app` with a valid account/license
 - Python 3.11+
 
-### Setup
+### Install
+
+From PyPI:
+```bash
+pip install hermes-pen-bridge
+```
+
+Or zero-install with [uv](https://docs.astral.sh/uv/):
+```bash
+uvx hermes-pen-bridge --pencil-binary /Applications/Pencil.app/Contents/Resources/app.asar.unpacked/out/mcp-server-darwin-arm64
+```
+
+Or from source:
 ```bash
 git clone https://github.com/devvgwardo/hermes-pen-bridge
 cd hermes-pen-bridge
