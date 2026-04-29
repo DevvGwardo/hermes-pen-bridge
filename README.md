@@ -50,7 +50,7 @@ Hermes (Nous Research's local agent) is the primary audience — it's where this
 
 ### Setup
 ```bash
-git clone https://github.com/<your-handle>/hermes-pen-bridge
+git clone https://github.com/devvgwardo/hermes-pen-bridge
 cd hermes-pen-bridge
 python3 -m venv .venv && source .venv/bin/activate
 pip install -e .
@@ -107,4 +107,4 @@ If you want a fully open-source design tool with built-in MCP (no closed-source 
 
 ## Related: the design pattern
 
-The proxy approach used here is documented as a generic skill at [desktop-app-mcp-proxy-pattern](https://github.com/<your-handle>/desktop-app-mcp-proxy-pattern) — applies to any Electron app that bundles its own MCP binary.
+The proxy approach used here is documented as a generic skill at [desktop-app-mcp-proxy-pattern](https://github.com/devvgwardo/desktop-app-mcp-proxy-pattern) — applies to any Electron app that bundles its own MCP binary.
